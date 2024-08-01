@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>Send Request to Flask</title>
+    <style>
+    </style>
+    <script>
+        function handleClick() {
+            fetch('/redirect', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ message: 'Requesting redirection URL' })
+            })
+            .then(response => response.json())
+            .then(data => {
+                window.location.href = data.redirect_url;
+            })
+            .catch(error => console.error('Error:', error));
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Trigger handleClick function automatically when the page loads
+            handleClick();
+        });
+    </script>
+</head>
+<body>
+    <h1>Send a POST Request to Flask Server</h1>
+    <button id="redirectButton" style="display: none;">Click Me</button>
+</body>
+</html>

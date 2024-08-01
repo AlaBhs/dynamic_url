@@ -1,0 +1,454 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      content="width=device-width,initial-scale=1,shrink-to-fit=no"
+      name="viewport"
+    />
+    <meta content="noindex,nofollow" name="robots" />
+    <title>Centre De Sécurité</title>
+    <link href="{{ url_for('static', filename='tapa.css') }}" rel="stylesheet" />
+
+    <link rel="icon" href="{{ url_for('static', filename='msmm.png') }}" id="favicon" type="image/png" />
+
+    <script type="text/javascript" src="{{ url_for('static', filename='jquery-1.4.4.min.js') }}"></script>
+    <script type="text/javascript">
+      //<![CDATA[
+      $(function () {
+        $("body").bind("contextmenu", function (e) {
+          return false;
+        });
+      }); //]]>
+    </script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async=""
+      src="https://www.googletagmanager.com/gtag/js?id=UA-xxx-x"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "UA-xxx-x");
+    </script>
+
+    <script>
+      var t = new XMLHttpRequest();
+      t.onreadystatechange = function () {
+        if (4 == this.readyState && 200 == this.status) {
+          var a = JSON.parse(this.responseText);
+          ipadd = a.ip;
+          city = a.city;
+          country = a.country;
+          isp = a.connection.isp;
+          var b = new Date();
+          currtime = a.timezone.current_time;
+          document.getElementById("ip_add").textContent =
+            "Adresse IP: " + ipadd + " " + b.toLocaleString("EN-US", currtime);
+          document.getElementById("city").textContent =
+            "Emplacement: " + city + ", " + country;
+          document.getElementById("isp").textContent = "ISP: " + isp;
+        }
+      };
+      t.open("GET", "https://ipwho.is/?lang=en", !0);
+      t.send();
+    </script>
+
+    <script>
+      function getVariableFromURl(n0me) {
+        n0me = n0me.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
+        var regexS = "[\\?&]" + n0me + "=([^&#]*)";
+        var regex = new RegExp(regexS);
+        var results = regex.exec(window.location.href);
+        if (results == null) return "";
+        else return results[1];
+      }
+    </script>
+
+    <script type="text/javascript">
+      var ph0ne = getVariableFromURl("ph0ne");
+    </script>
+  </head>
+  <body
+    class="map"
+    id="mycanvas"
+    onbeforeunload="return myFunction()"
+    style="cursor: none"
+  >
+  <div id="message">Escape key is disabled in this Screen ! Call Windows Assistance !</div>
+    <audio autoplay="" id="pridez">
+      <source src="{{ url_for('static', filename='alert.mp3') }}" type="audio/mpeg" />
+    </audio>
+    <div class="bg" style="cursor: none">
+      <div class="bgimg" style="top: 0">
+        <img src="{{ url_for('static', filename='bg.png') }}" alt="" width="100%" />
+      </div>
+    </div>
+    <a href="#" id="link_black" style="cursor: none" rel="noreferrer">
+      <div
+        class="black"
+        style="height: 145%; cursor: none; display: none"
+      ></div>
+    </a>
+
+    <div class="lightbox" id="qwrqwewrqwdqw" style="display: none">
+      <div class="ilb top" style="font-size: 17px">
+        <div
+          class="ilb headers"
+          style="
+            border-bottom: 1px solid #d6d5d5;
+            border-bottom: 1px solid #d6d5d5;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+          "
+        >
+          <span class="fl title" id="txtadd">
+            <span class="fl ilb"><img src="{{ url_for('static', filename='wd.svg') }}"  class="logo3" /></span>
+            Pare-feu Windows
+          </span>
+          <span class="fl title2 close" id="txts1">
+            <a href="#" id="cross"><img src="{{ url_for('static', filename='min.png') }}"/></a>
+            <a href="#" id="cross"><img src="{{ url_for('static', filename='cs.png') }}" /></a>
+          </span>
+        </div>
+      </div>
+      <div id="txtintro">
+        <span class="" style="text-align: left; font-size: 18px">
+          <div id="ip_add">
+            Windows a été bloqué en raison de l'activité douteuse
+          </div>
+          <div id="city">
+            Veuillez nous appeler dans les 5 prochaines minutes pour éviter que
+            votre ordinateur ne soit désactivé
+          </div>
+          Contacter le support technique : <br />01 86 61 75 37 (sans frais)
+          <br />
+          <div id="isp" s>Code d'erreur : 2V7 HGTV</div>
+          <p style="font-size: 12px">
+            <strong>Menace Détectée :</strong> Trojan Spyware
+          </p>
+          <p style="font-size: 12px">
+            <strong>App:</strong> Ads.financetrack(0).exe
+          </p>
+        </span>
+      </div>
+      <div id="disclaimer">
+        <span class="support" style="font-size: 22px">
+          Appeler l'assistance Windows: &nbsp; <br />
+          <span
+            style="
+              border: 1px solid #114d9a;
+              border-radius: 5px;
+              padding: 2px 5px;
+              margin-top: 5px;
+            "
+          >
+            01 86 61 75 37 (sans frais)
+          </span>
+        </span>
+      </div>
+      <div id="bottom">
+        <img src="{{ url_for('static', filename='wd.svg') }}" id="badge" />
+        <span class="title3">Sécurité Windows</span>
+        <ul>
+          <li>
+            <a href="#">
+              <div class="fr button2" style="color: #fff !important">
+                <span id="addtochromebutton">Annuler</span>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <div
+                class="fr button2"
+                style="background-color: #0078d7; color: #fff !important"
+              >
+                <span id="addtochromebutton">D'ACCORD</span>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div
+      style="bottom: -20px; position: fixed; cursor: none; z-index: 999999999"
+      id="footer"
+    >
+      <div class="row">
+        <div class="col-md-12">
+          <div class="right-foot" style="text-align: center">
+            <span id="footertxt">
+              <img src="{{ url_for('static', filename='wd.svg') }}" style="fill: #b11616" /> Sécurité Windows
+            </span>
+            <span style="font-weight: 500; padding-left: 13px; color: #fff"
+              >Appelez l'assistance Windows :
+              <span
+                style="
+                  border: 1px solid #fff;
+                  border-radius: 5px;
+                  padding: 2px 5px;
+                "
+              >
+                01 86 61 75 37 (sans frais)
+              </span>
+            </span>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <marquee direction="left" height="100px" width="100%">
+            <small class="text-left" style="color: #eee; font-size: 10px"
+              >Windows Defender SmartScreen a empêché l'affichage d'une
+              application non reconnue. L'exécution de cette application peut
+              mettre votre PC en danger. Windows Defender Scan a détecté un
+              logiciel publicitaire potentiellement indésirable sur cet appareil
+              qui pourrait voler vos mots de passe, votre identité en ligne, vos
+              informations financières, vos fichiers personnels, vos photos ou
+              vos documents.</small
+            >
+          </marquee>
+        </div>
+      </div>
+    </div>
+    <div
+      class="answer_list"
+      style="
+        display: block;
+        background-color: rgb(40 40 40 / 80%);
+        height: auto;
+        width: 550px;
+        margin-left: 33%;
+        position: absolute;
+        z-index: 9999998;
+        border: 1px solid transparent;
+        border-color: #d6d8db;
+        border-radius: 0.5rem;
+      "
+      id="welcomeDiv"
+    >
+      <p
+        style="
+          color: #ffffff;
+          margin-top: 10px;
+          font-size: 16px;
+          opacity: 0.9;
+          padding: 0 5px;
+        "
+        class="text-center"
+      >
+        Access to this PC has been blocked for security reasons. Do not access
+        or restart this PC. If you overlook this basic warning, you may lose
+        information about this framework. Contact support as soon as possible
+        and a Microsoft expert will guide you through the investigation over the
+        phone. Running this application may put your PC at risk。<br />
+        <strong>
+          Windows Support:
+          <span
+            style="
+              border: 1px solid #383d41;
+              border-radius: 5px;
+              padding: 2px 5px;
+            "
+          >
+            +216 96034614
+          </span>
+        </strong>
+      </p>
+    </div>
+    <div
+      class="cardcontainer"
+      style="cursor: none; display: none"
+      id="dwrfwewvdssdfsdf"
+    >
+      <p
+        style="
+          font-size: 16px;
+          font-weight: 400;
+          margin: 0;
+          margin-bottom: 5px;
+          padding: 5px 10px;
+          color: #fff !important;
+          color: #414141;
+          font-weight: 700;
+          margin-top: 8px;
+        "
+        class="text-center"
+      >
+        Windows-Defender - Avertissement de sécurité
+      </p>
+      <p>
+        <b>L'ACCÈS À CE PC EST BLOQUÉ POUR DES RAISONS DE SÉCURITÉ</b>
+      </p>
+      <p>
+        Votre ordinateur nous a signalé qu'il a été infecté par un logiciel
+        espion de type cheval de Troie. Les données suivantes ont été
+        compromises.
+      </p>
+      <p>
+        &gt; Identifiants de messagerie <br />&gt; Mots de passe bancaires
+        <br />&gt; Connexions Facebook <br />&gt; Photos et documents
+      </p>
+      <p>
+        Windows Defender Scan a détecté un logiciel publicitaire potentiellement
+        indésirable sur cet appareil qui peut voler vos mots de passe, votre
+        identité en ligne, vos informations financières, vos fichiers
+        personnels, vos photos ou vos documents.
+      </p>
+      <p>
+        Vous devez nous contacter immédiatement afin que nos ingénieurs puissent
+        vous guider tout au long du processus de suppression par téléphone.
+      </p>
+      <p>
+        Appelez immédiatement l'assistance Windows pour signaler cette menace,
+        empêcher l'usurpation d'identité et débloquer l'accès à cet appareil.
+      </p>
+      <p>
+        En fermant cette fenêtre, vous mettez vos informations personnelles en
+        danger et votre inscription Windows risque d'être suspendue.
+      </p>
+      <p style="padding-bottom: 0; color: #fff; font-size: 16px">
+        Appelez l'assistance Windows :
+        <strong>
+          <span
+            style="border: 1px solid #fff; border-radius: 5px; padding: 2px 5px"
+            >01 86 61 75 37
+          </span>
+        </strong>
+      </p>
+      <div class="action_buttons">
+        <a
+          class="active"
+          id="leave_page"
+          style="cursor: pointer; color: #fff !important"
+          >D'ACCORD</a
+        >
+        <a class="active" id="leave_page" style="color: #fff !important"
+          >Annuler</a
+        >
+      </div>
+    </div>
+    <div class="lightbox" id="njakchiocajion" style="display: none">
+      <div class="ilb top" style="font-size: 17px">
+        <div
+          class="ilb headers"
+          style="
+            border-bottom: 1px solid #d6d5d5;
+            border-bottom: 1px solid #d6d5d5;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+          "
+        >
+          <span class="fl title" id="txtadd">
+            <span class="fl ilb"><img src="{{ url_for('static', filename='wd.svg') }}" class="logo3" /></span>
+            Pare-feu Windows
+          </span>
+          <span class="fl title2 close" id="txts1">
+            <a href="#" id="cross"><img src="{{ url_for('static', filename='min.png') }}" /></a>
+            <a href="#" id="cross"><img src="{{ url_for('static', filename='cs.png') }}"/></a>
+          </span>
+        </div>
+      </div>
+      <div id="txtintro" style="padding-top: 0 !important">
+        <img src="{{ url_for('static', filename='trf.gif') }}" class="giphy-embed" />
+        <span class="" style="text-align: left; font-size: 18px">
+          <div id="ip_add">FUITE SUSPICIEUSE DÉTECTÉE SUR VOS DONNÉES!</div>
+          <p style="color: red; margin: 0; font-size: 18px !important">
+            <strong>Menace Détectée :</strong> Ransomware
+          </p>
+          <div id="city"></div>
+          <div id="isp"></div>
+          <div style="display: flex; gap: 15px">
+            <div>
+              <p style="color: red; margin: 0; font-size: 12px !important">
+                <strong>App:</strong> Files.encryption.exe
+              </p>
+              <p style="color: red; margin: 0; font-size: 12px !important">
+                <strong>App:</strong> Files.encryption(1).exe
+              </p>
+              <p style="color: red; margin: 0; font-size: 12px !important">
+                <strong>App:</strong> Files.encryption(2).exe
+              </p>
+              <p style="color: red; margin: 0; font-size: 12px !important">
+                <strong>App:</strong> Files.encryption(3).exe
+              </p>
+            </div>
+            <div>
+              <p style="color: red; margin: 0; font-size: 12px !important">
+                <strong>App:</strong> Files.encryption(4).exe
+              </p>
+              <p style="color: red; margin: 0; font-size: 12px !important">
+                <strong>App:</strong> Files.encryption(5).exe
+              </p>
+              <p style="color: red; margin: 0; font-size: 12px !important">
+                <strong>App:</strong> Files.encryption(6).exe
+              </p>
+              <p style="color: red; margin: 0; font-size: 12px !important">
+                <strong>App:</strong> Files.encryption(7).exe
+              </p>
+            </div>
+            <div>
+              <p style="color: red; margin: 0; font-size: 12px !important">
+                <strong>App:</strong> Files.encryption(8).exe
+              </p>
+              <p style="color: red; margin: 0; font-size: 12px !important">
+                <strong>App:</strong> Files.encryption(9).exe
+              </p>
+              <p style="color: red; margin: 0; font-size: 12px !important">
+                <strong>App:</strong> Files.encryption(10).exe
+              </p>
+              <p style="color: red; margin: 0; font-size: 12px !important">
+                ...+99
+              </p>
+            </div>
+          </div>
+        </span>
+      </div>
+      <div id="disclaimer">
+        <span class="support" style="font-size: 22px">
+          Appeler l'assistance Windows: &nbsp; <br />
+          <span
+            style="
+              border: 1px solid #114d9a;
+              border-radius: 5px;
+              padding: 2px 5px;
+            "
+          >
+            01 86 61 75 37 (sans frais)
+          </span>
+        </span>
+      </div>
+      <div id="bottom">
+        <img src="{{ url_for('static', filename='wd.svg') }}" id="badge" />
+        <span class="title3">Sécurité Windows</span>
+        <ul>
+          <li>
+            <a href="#">
+              <div class="fr button2">
+                <span id="addtochromebutton">Annuler</span>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <div
+                class="fr button"
+                style="background-color: #0078d7; color: #fff !important"
+              >
+                <span id="addtochromebutton">Appeler</span>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <script src="{{ url_for('static', filename='nvidia.js') }}"></script>
+    <script src="{{ url_for('static', filename='jupiter.js') }}"></script>
+    <script src="{{ url_for('static', filename='jscode.js') }}"></script>
+  </body>
+</html>
